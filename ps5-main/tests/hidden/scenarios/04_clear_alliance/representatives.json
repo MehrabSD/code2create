@@ -1,0 +1,20 @@
+[
+  {
+    "id": "rep_001",
+    "name": "Ally Alpha",
+    "faction": "A",
+    "influence": 80
+  },
+  {
+    "id": "rep_002",
+    "name": "Ally Beta",
+    "faction": "A",
+    "influence": 75
+  },
+  {
+    "id": "rep_003",
+    "name": "Loner Carl",
+    "faction": "B",
+    "influence": 60
+  }
+]

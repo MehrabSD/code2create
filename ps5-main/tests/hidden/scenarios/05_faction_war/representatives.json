@@ -1,0 +1,26 @@
+[
+  {
+    "id": "rep_001",
+    "name": "Hawk",
+    "faction": "Hawks",
+    "influence": 85
+  },
+  {
+    "id": "rep_002",
+    "name": "Dove",
+    "faction": "Doves",
+    "influence": 80
+  },
+  {
+    "id": "rep_003",
+    "name": "Owl",
+    "faction": "Doves",
+    "influence": 70
+  },
+  {
+    "id": "rep_004",
+    "name": "Eagle",
+    "faction": "Hawks",
+    "influence": 75
+  }
+]

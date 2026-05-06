@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phantom Consensus Dashboard</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Inter',sans-serif; background:#0a0e1a; color:#e0e6ed; min-height:100vh; }
+  .header { background:linear-gradient(135deg,#0f1629 0%,#1a1f3a 100%); padding:24px 32px; border-bottom:1px solid #2a2f4a; display:flex; align-items:center; gap:16px; }
+  .header h1 { font-size:22px; font-weight:700; background:linear-gradient(90deg,#6c63ff,#48cfad); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+  .header .badge { background:#6c63ff22; color:#6c63ff; padding:4px 10px; border-radius:12px; font-size:11px; font-weight:600; }
+  .grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; padding:24px 32px; max-width:1400px; margin:0 auto; }
+  .card { background:#111827; border:1px solid #1e2740; border-radius:14px; padding:20px; }
+  .card h2 { font-size:14px; font-weight:600; color:#8b95a8; text-transform:uppercase; letter-spacing:1px; margin-bottom:14px; }
+  .full { grid-column:1/-1; }
+  .pill { display:inline-block; padding:3px 10px; border-radius:8px; font-size:11px; font-weight:600; margin:2px; }
+  .pill-green { background:#10b98122; color:#10b981; }
+  .pill-red { background:#ef444422; color:#ef4444; }
+  .pill-blue { background:#3b82f622; color:#3b82f6; }
+  .pill-yellow { background:#f59e0b22; color:#f59e0b; }
+  .pill-purple { background:#8b5cf622; color:#8b5cf6; }
+  table { width:100%; border-collapse:collapse; font-size:13px; }
+  th { text-align:left; padding:8px 10px; color:#6b7280; border-bottom:1px solid #1e2740; font-weight:500; }
+  td { padding:8px 10px; border-bottom:1px solid #1e274044; }
+  .bar-bg { background:#1e2740; border-radius:4px; height:8px; width:100%; position:relative; }
+  .bar-fill { height:8px; border-radius:4px; position:absolute; top:0; left:0; transition:width .6s ease; }
+  .stat-row { display:flex; gap:16px; flex-wrap:wrap; }
+  .stat { flex:1; min-width:120px; background:#0f1629; border:1px solid #1e2740; border-radius:10px; padding:14px; text-align:center; }
+  .stat .num { font-size:28px; font-weight:700; }
+  .stat .label { font-size:11px; color:#6b7280; margin-top:4px; }
+  .node-list { display:flex; flex-wrap:wrap; gap:8px; }
+  .node { padding:6px 14px; border-radius:10px; font-size:12px; font-weight:500; border:1px solid; }
+  .alliance-line { display:flex; align-items:center; gap:8px; margin:6px 0; font-size:13px; }
+  .alliance-dot { width:8px; height:8px; border-radius:50%; background:#10b981; }
+  canvas { width:100%; height:320px; display:block; margin-top:10px; }
+  .legend { display:flex; gap:14px; margin-top:10px; flex-wrap:wrap; }
+  .legend-item { display:flex; align-items:center; gap:5px; font-size:11px; color:#8b95a8; }
+  .legend-color { width:10px; height:10px; border-radius:50%; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>Phantom Consensus Dashboard</h1>
+  <span class="badge">STRATEGIC ENGINE v1.0</span>
+</div>
+
+<div class="grid">
+  <!-- Stats Row -->
+  <div class="card full">
+    <h2>Pipeline Summary</h2>
+    <div class="stat-row" id="stats"></div>
+  </div>
+
+  <!-- Representatives -->
+  <div class="card">
+    <h2>Representatives</h2>
+    <div id="reps"></div>
+  </div>
+
+  <!-- Proposals -->
+  <div class="card">
+    <h2>Proposal Viability</h2>
+    <table><thead><tr><th>Proposal</th><th>Priority</th><th>Viability</th><th>Status</th></tr></thead><tbody id="props"></tbody></table>
+  </div>
+
+  <!-- Alliances -->
+  <div class="card">
+    <h2>Detected Alliances</h2>
+    <div id="alliances"></div>
+  </div>
+
+  <!-- Exclusions -->
+  <div class="card">
+    <h2>Strategic Exclusions</h2>
+    <div id="exclusions"></div>
+  </div>
+
+  <!-- Network Graph -->
+  <div class="card full">
+    <h2>Relationship Network</h2>
+    <canvas id="network"></canvas>
+    <div class="legend">
+      <div class="legend-item"><div class="legend-color" style="background:#10b981"></div>Safe Rep</div>
+      <div class="legend-item"><div class="legend-color" style="background:#ef4444"></div>Trojan Horse</div>
+      <div class="legend-item"><div class="legend-color" style="background:#3b82f6"></div>Supporter</div>
+      <div class="legend-item"><div class="legend-color" style="background:#6b7280"></div>Low Trust</div>
+      <div class="legend-item"><div class="legend-color" style="background:#10b981"></div>Alliance</div>
+    </div>
+  </div>
+
+  <!-- Final Agreement -->
+  <div class="card full">
+    <h2>Final Agreement</h2>
+    <div id="agreement"></div>
+  </div>
+</div>
+
+<script>
+// Data from engine output
+const data = {
+  reps: [
+    {id:"rep_001",name:"Senator Aria",faction:"Progressives",influence:85,status:"objector"},
+    {id:"rep_002",name:"Councilor Blake",faction:"Moderates",influence:70,status:"supporter"},
+    {id:"rep_003",name:"Minister Chen",faction:"Conservatives",influence:95,status:"supporter"},
+    {id:"rep_004",name:"Delegate Davis",faction:"Progressives",influence:50,status:"supporter"},
+    {id:"rep_005",name:"Ambassador Ellis",faction:"Moderates",influence:100,status:"trojan"},
+    {id:"rep_006",name:"Director Fox",faction:"Independents",influence:92,status:"trojan"}
+  ],
+  proposals: [
+    {id:"prop_001",title:"Infrastructure Modernization Act",priority:8,viability:6.764,status:"viable"},
+    {id:"prop_002",title:"Budget Reconciliation Framework",priority:10,viability:8.618,status:"selected"},
+    {id:"prop_003",title:"Environmental Protection Initiative",priority:9.5,viability:8.824,status:"selected"},
+    {id:"prop_004",title:"Emergency Response Protocol",priority:10,viability:7.073,status:"poison"},
+    {id:"prop_005",title:"Orphaned Proposal",priority:6,viability:0,status:"ghost"}
+  ],
+  alliances: [["rep_001","rep_004"]],
+  trojans: ["rep_005","rep_006"],
+  poisons: ["prop_004"],
+  ghosts: ["prop_005"],
+  supporters: ["rep_003","rep_002","rep_004"],
+  relations: [
+    {from:"rep_001",to:"rep_004",score:80.75},
+    {from:"rep_004",to:"rep_001",score:88.2},
+    {from:"rep_001",to:"rep_003",score:7.0},
+    {from:"rep_002",to:"rep_005",score:56.25},
+    {from:"rep_005",to:"rep_002",score:68.0},
+    {from:"rep_006",to:"rep_001",score:22.5},
+    {from:"rep_001",to:"rep_006",score:63.0},
+    {from:"rep_001",to:"rep_002",score:65.6}
+  ]
+};
+
+// Stats
+const statsEl = document.getElementById('stats');
+const stats = [
+  {num:6,label:"Representatives",color:"#6c63ff"},
+  {num:4,label:"Valid Proposals",color:"#48cfad"},
+  {num:2,label:"Trojan Horses",color:"#ef4444"},
+  {num:1,label:"Poison Pills",color:"#f59e0b"},
+  {num:1,label:"Alliances",color:"#10b981"},
+  {num:3,label:"Supporters",color:"#3b82f6"}
+];
+stats.forEach(s=>{
+  statsEl.innerHTML+=`<div class="stat"><div class="num" style="color:${s.color}">${s.num}</div><div class="label">${s.label}</div></div>`;
+});
+
+// Reps
+const repsEl = document.getElementById('reps');
+const factionColors = {Progressives:"#6c63ff",Moderates:"#3b82f6",Conservatives:"#ef4444",Independents:"#f59e0b"};
+data.reps.forEach(r=>{
+  const statusPill = r.status==='trojan'?'pill-red':r.status==='supporter'?'pill-green':'pill-yellow';
+  const statusLabel = r.status==='trojan'?'TROJAN HORSE':r.status==='supporter'?'SUPPORTER':'OBJECTOR';
+  repsEl.innerHTML+=`<div style="display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid #1e274044">
+    <div><span class="node" style="border-color:${factionColors[r.faction]||'#6b7280'};color:${factionColors[r.faction]||'#6b7280'}">${r.name}</span></div>
+    <div style="display:flex;align-items:center;gap:8px">
+      <span style="font-size:12px;color:#6b7280">Inf: ${r.influence}</span>
+      <span class="pill ${statusPill}">${statusLabel}</span>
+    </div>
+  </div>`;
+});
+
+// Proposals
+const propsEl = document.getElementById('props');
+data.proposals.forEach(p=>{
+  const statusPill = p.status==='selected'?'pill-green':p.status==='poison'?'pill-red':'pill-yellow';
+  const maxV = 10;
+  const pct = Math.min(100, (p.viability/maxV)*100);
+  const barColor = p.status==='selected'?'#10b981':p.status==='poison'?'#ef4444':'#6b7280';
+  propsEl.innerHTML+=`<tr><td style="max-width:180px">${p.title}</td><td>${p.priority}</td>
+    <td><div class="bar-bg"><div class="bar-fill" style="width:${pct}%;background:${barColor}"></div></div><span style="font-size:11px;color:#6b7280">${p.viability.toFixed(2)}</span></td>
+    <td><span class="pill ${statusPill}">${p.status.toUpperCase()}</span></td></tr>`;
+});
+
+// Alliances
+const alliancesEl = document.getElementById('alliances');
+if(data.alliances.length===0) alliancesEl.innerHTML='<p style="color:#6b7280;font-size:13px">No alliances detected (complete rivalry).</p>';
+data.alliances.forEach(a=>{
+  const r1 = data.reps.find(r=>r.id===a[0]);
+  const r2 = data.reps.find(r=>r.id===a[1]);
+  alliancesEl.innerHTML+=`<div class="alliance-line"><div class="alliance-dot"></div>
+    <span class="pill pill-purple">${r1?r1.name:a[0]}</span> <span style="color:#10b981;font-weight:600">&#8596;</span> <span class="pill pill-purple">${r2?r2.name:a[1]}</span>
+    <span style="font-size:11px;color:#6b7280;margin-left:auto">Bidirectional trust verified</span></div>`;
+});
+
+// Exclusions
+const exclEl = document.getElementById('exclusions');
+data.trojans.forEach(t=>{
+  const r=data.reps.find(x=>x.id===t);
+  exclEl.innerHTML+=`<div style="margin:6px 0"><span class="pill pill-red">TROJAN HORSE</span> <span style="font-size:13px">${r?r.name:t} — High betrayal probability despite high influence</span></div>`;
+});
+data.poisons.forEach(p=>{
+  const pr=data.proposals.find(x=>x.id===p);
+  exclEl.innerHTML+=`<div style="margin:6px 0"><span class="pill pill-yellow">POISON PILL</span> <span style="font-size:13px">${pr?pr.title:p} — Majority opposition from influential reps</span></div>`;
+});
+data.ghosts.forEach(g=>{
+  const pr=data.proposals.find(x=>x.id===g);
+  exclEl.innerHTML+=`<div style="margin:6px 0"><span class="pill pill-blue">GHOST SPONSOR</span> <span style="font-size:13px">${pr?pr.title:g} — Sponsor does not exist</span></div>`;
+});
+
+// Agreement
+const agreeEl = document.getElementById('agreement');
+const selProps = data.proposals.filter(p=>p.status==='selected');
+let agreeHTML = '<div style="display:flex;gap:20px;flex-wrap:wrap">';
+agreeHTML += '<div style="flex:1;min-width:250px"><h3 style="font-size:13px;color:#10b981;margin-bottom:8px">Selected Proposals</h3>';
+selProps.forEach(p=>agreeHTML+=`<div style="padding:6px 0;font-size:13px;border-bottom:1px solid #1e274044">${p.title} <span style="color:#6b7280">(viability: ${p.viability.toFixed(2)})</span></div>`);
+agreeHTML += '</div><div style="flex:1;min-width:200px"><h3 style="font-size:13px;color:#3b82f6;margin-bottom:8px">Supporting Representatives</h3>';
+data.supporters.forEach(s=>{const r=data.reps.find(x=>x.id===s);agreeHTML+=`<div style="padding:6px 0;font-size:13px">${r?r.name:s} <span class="pill pill-green">ACTIVE</span></div>`;});
+agreeHTML += '</div></div>';
+agreeEl.innerHTML = agreeHTML;
+
+// Network Canvas
+const canvas = document.getElementById('network');
+const ctx = canvas.getContext('2d');
+canvas.width = canvas.offsetWidth * 2;
+canvas.height = 640;
+ctx.scale(2,2);
+const W=canvas.offsetWidth, H=320;
+
+const positions = {};
+const repIds = data.reps.map(r=>r.id);
+const cx=W/2, cy=H/2, radius=Math.min(W,H)*0.35;
+repIds.forEach((id,i)=>{
+  const angle = (i/repIds.length)*Math.PI*2 - Math.PI/2;
+  positions[id] = {x:cx+Math.cos(angle)*radius, y:cy+Math.sin(angle)*radius};
+});
+
+// Draw relations
+data.relations.forEach(rel=>{
+  const p1=positions[rel.from], p2=positions[rel.to];
+  if(!p1||!p2) return;
+  const isAlliance = data.alliances.some(a=>(a[0]===rel.from&&a[1]===rel.to)||(a[0]===rel.to&&a[1]===rel.from));
+  ctx.beginPath();
+  ctx.moveTo(p1.x,p1.y);
+  ctx.lineTo(p2.x,p2.y);
+  ctx.strokeStyle = isAlliance?'#10b981':rel.score>50?'#3b82f644':'#6b728033';
+  ctx.lineWidth = isAlliance?2.5:1;
+  ctx.stroke();
+});
+
+// Draw nodes
+data.reps.forEach(r=>{
+  const p=positions[r.id];
+  if(!p) return;
+  const isTrojan = data.trojans.includes(r.id);
+  const isSupporter = data.supporters.includes(r.id);
+  const color = isTrojan?'#ef4444':isSupporter?'#3b82f6':'#10b981';
+  const sz = 6 + r.influence/15;
+  ctx.beginPath();
+  ctx.arc(p.x,p.y,sz,0,Math.PI*2);
+  ctx.fillStyle=color;
+  ctx.fill();
+  ctx.strokeStyle='#0a0e1a';
+  ctx.lineWidth=2;
+  ctx.stroke();
+  ctx.fillStyle='#e0e6ed';
+  ctx.font='11px Inter,sans-serif';
+  ctx.textAlign='center';
+  ctx.fillText(r.name, p.x, p.y+sz+14);
+});
+</script>
+</body>
+</html>

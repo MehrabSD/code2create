@@ -1,0 +1,26 @@
+[
+  {
+    "id": "rep_001",
+    "name": "Normal",
+    "faction": "A",
+    "influence": 80
+  },
+  {
+    "id": "rep_002",
+    "name": "Null Influence",
+    "faction": "A",
+    "influence": null
+  },
+  {
+    "id": "rep_003",
+    "name": "String Influence",
+    "faction": "B",
+    "influence": "sixty"
+  },
+  {
+    "id": "rep_004",
+    "name": "High Influence",
+    "faction": "B",
+    "influence": 200
+  }
+]

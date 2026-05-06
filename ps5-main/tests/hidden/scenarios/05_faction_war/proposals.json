@@ -1,0 +1,14 @@
+[
+  {
+    "id": "prop_001",
+    "title": "War Bill",
+    "sponsor": "rep_001",
+    "priority": 8
+  },
+  {
+    "id": "prop_002",
+    "title": "Peace Bill",
+    "sponsor": "rep_002",
+    "priority": 7
+  }
+]

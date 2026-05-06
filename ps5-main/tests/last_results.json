@@ -1,0 +1,172 @@
+{
+  "public": {
+    "passed": 13,
+    "total": 13
+  },
+  "hidden": [
+    {
+      "id": "01",
+      "name": "Trojan Horse",
+      "max": 6,
+      "earned": 6.0,
+      "fraction": 1.0,
+      "message": "Correctly excluded Trojan Horse rep_002",
+      "time": 0.09128499031066895
+    },
+    {
+      "id": "02",
+      "name": "Poison Pill",
+      "max": 6,
+      "earned": 6.0,
+      "fraction": 1.0,
+      "message": "Correctly avoided Poison Pill prop_001 and selected prop_002",
+      "time": 0.06527352333068848
+    },
+    {
+      "id": "03",
+      "name": "False Friend",
+      "max": 6,
+      "earned": 6.0,
+      "fraction": 1.0,
+      "message": "Correctly detected False Friend \u2014 no alliance",
+      "time": 0.10727453231811523
+    },
+    {
+      "id": "04",
+      "name": "Clear Alliance",
+      "max": 6,
+      "earned": 6.0,
+      "fraction": 1.0,
+      "message": "Correctly detected genuine alliance",
+      "time": 0.0756690502166748
+    },
+    {
+      "id": "05",
+      "name": "Faction War",
+      "max": 5,
+      "earned": 2.5,
+      "fraction": 0.5,
+      "message": "Selected correct proposal but also included controversial one",
+      "time": 0.10067129135131836
+    },
+    {
+      "id": "06",
+      "name": "Priority vs Objection",
+      "max": 5,
+      "earned": 5.0,
+      "fraction": 1.0,
+      "message": "Objection weight correctly beat raw priority",
+      "time": 0.06497859954833984
+    },
+    {
+      "id": "07",
+      "name": "Supporter Coherence",
+      "max": 6,
+      "earned": 6.0,
+      "fraction": 1.0,
+      "message": "Correctly excluded objector from supporters",
+      "time": 0.07873129844665527
+    },
+    {
+      "id": "08",
+      "name": "Faction Infiltrator",
+      "max": 6,
+      "earned": 6.0,
+      "fraction": 1.0,
+      "message": "Correctly detected and excluded faction infiltrator",
+      "time": 0.05814623832702637
+    },
+    {
+      "id": "09",
+      "name": "Cascading Betrayal",
+      "max": 5,
+      "earned": 5.0,
+      "fraction": 1.0,
+      "message": "Correctly excluded high-risk end of betrayal chain",
+      "time": 0.058690547943115234
+    },
+    {
+      "id": "10",
+      "name": "Alliance Hijack",
+      "max": 6,
+      "earned": 6.0,
+      "fraction": 1.0,
+      "message": "Alliance preserved, disruptor excluded",
+      "time": 0.05890464782714844
+    },
+    {
+      "id": "11",
+      "name": "Complete Rivalry",
+      "max": 5,
+      "earned": 5.0,
+      "fraction": 1.0,
+      "message": "Correctly returned empty alliances",
+      "time": 0.05986309051513672
+    },
+    {
+      "id": "12",
+      "name": "Ghost Sponsor",
+      "max": 6,
+      "earned": 6.0,
+      "fraction": 1.0,
+      "message": "Correctly excluded ghost-sponsored proposal",
+      "time": 0.05812883377075195
+    },
+    {
+      "id": "13",
+      "name": "Minimum Viable",
+      "max": 5,
+      "earned": 5.0,
+      "fraction": 1.0,
+      "message": "Correctly handled minimum viable scenario",
+      "time": 0.05483579635620117
+    },
+    {
+      "id": "14",
+      "name": "ID Normalization",
+      "max": 6,
+      "earned": 6.0,
+      "fraction": 1.0,
+      "message": "IDs correctly normalized across files",
+      "time": 0.05380439758300781
+    },
+    {
+      "id": "15",
+      "name": "Duplicate Proposals",
+      "max": 5,
+      "earned": 5.0,
+      "fraction": 1.0,
+      "message": "Correctly deduplicated proposals",
+      "time": 0.05716252326965332
+    },
+    {
+      "id": "16",
+      "name": "Null Influence",
+      "max": 5,
+      "earned": 5.0,
+      "fraction": 1.0,
+      "message": "Handled null/invalid influence without crashing",
+      "time": 0.0573878288269043
+    },
+    {
+      "id": "17",
+      "name": "Scale Correctness",
+      "max": 6,
+      "earned": 6.0,
+      "fraction": 1.0,
+      "message": "has proposals; has supporters; excluded trojan; excluded poison",
+      "time": 0.0762486457824707
+    },
+    {
+      "id": "18",
+      "name": "Dirty CSV",
+      "max": 5,
+      "earned": 5.0,
+      "fraction": 1.0,
+      "message": "Handled dirty CSV gracefully",
+      "time": 0.07951855659484863
+    }
+  ],
+  "total_score": 97.5,
+  "tier": "S"
+}

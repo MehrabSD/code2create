@@ -1,3 +1,0 @@
-from,to,trust,rivalry,betrayal_prob,last_interaction
-rep_001,rep_002,70,10,0.1,2024-01-01
-rep_002,rep_001,,high,1.5,2024-01-01

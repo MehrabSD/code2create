@@ -1,0 +1,14 @@
+[
+  {
+    "id": "prop_001",
+    "title": "High Priority Controversial",
+    "sponsor": "rep_002",
+    "priority": 10
+  },
+  {
+    "id": "prop_002",
+    "title": "Low Priority Safe",
+    "sponsor": "rep_002",
+    "priority": 5
+  }
+]

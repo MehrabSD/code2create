@@ -1,0 +1,20 @@
+[
+  {
+    "id": "prop_001",
+    "title": "Original Bill",
+    "sponsor": "rep_001",
+    "priority": 8
+  },
+  {
+    "id": "prop_001",
+    "title": "Duplicate Bill",
+    "sponsor": "rep_002",
+    "priority": 5
+  },
+  {
+    "id": "prop_002",
+    "title": "Unique Bill",
+    "sponsor": "rep_002",
+    "priority": 7
+  }
+]

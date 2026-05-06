@@ -1,0 +1,7 @@
+from,to,trust,rivalry,betrayal_prob
+rep_001,rep_002,92,3,0.02
+rep_002,rep_001,90,5,0.04
+rep_003,rep_001,20,70,0.85
+rep_003,rep_002,25,65,0.8
+rep_001,rep_003,30,60,0.1
+rep_002,rep_003,28,62,0.12

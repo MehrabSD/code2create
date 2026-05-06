@@ -1,0 +1,20 @@
+[
+  {
+    "id": "rep_001",
+    "name": "Trusting Tom",
+    "faction": "A",
+    "influence": 80
+  },
+  {
+    "id": "rep_002",
+    "name": "Deceptive Dan",
+    "faction": "A",
+    "influence": 75
+  },
+  {
+    "id": "rep_003",
+    "name": "Neutral Nancy",
+    "faction": "B",
+    "influence": 60
+  }
+]

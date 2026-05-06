@@ -1,0 +1,14 @@
+[
+  {
+    "id": "rep_001",
+    "name": "Alpha",
+    "faction": "A",
+    "influence": 80
+  },
+  {
+    "id": "rep_002",
+    "name": "Beta",
+    "faction": "A",
+    "influence": 75
+  }
+]

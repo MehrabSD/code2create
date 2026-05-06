@@ -1,0 +1,26 @@
+[
+  {
+    "id": "rep_001",
+    "name": "True Progressive",
+    "faction": "Progressives",
+    "influence": 80
+  },
+  {
+    "id": "rep_002",
+    "name": "Spy Steve",
+    "faction": "Progressives",
+    "influence": 85
+  },
+  {
+    "id": "rep_003",
+    "name": "True Progressive 2",
+    "faction": "Progressives",
+    "influence": 70
+  },
+  {
+    "id": "rep_004",
+    "name": "Outsider",
+    "faction": "Others",
+    "influence": 60
+  }
+]
