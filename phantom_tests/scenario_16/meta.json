@@ -1,0 +1,27 @@
+{
+  "scenario": 16,
+  "name": "Cascading Betrayal \u2014 High-Risk Chain End",
+  "description": "rep_002's max_betrayal=0.80 (toward rep_003). This makes rep_002 a Trojan Horse (reliability near 0). Must be excluded from supporters. Alliance [rep_001,rep_002] still valid if their rel_scores are both \u226540.",
+  "expected_output": {
+    "final_agreement": {
+      "proposals": [
+        "prop_001"
+      ],
+      "supporting_reps": [
+        "rep_001",
+        "rep_003"
+      ]
+    },
+    "alliances": [
+      [
+        "rep_001",
+        "rep_002"
+      ]
+    ]
+  },
+  "scoring": {
+    "full_credit": "rep_002 excluded from supporters",
+    "partial_credit": "rep_002 excluded but alliance wrong",
+    "zero": "rep_002 included as supporter"
+  }
+}

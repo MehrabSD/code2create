@@ -1,0 +1,23 @@
+{
+  "scenario": 8,
+  "name": "Supporter Coherence \u2014 No Objectors as Supporters",
+  "description": "rep_002 has high reliability but objected to prop_001 (a selected proposal). Must be excluded from supporting_reps via Supporter Coherence rule.",
+  "expected_output": {
+    "final_agreement": {
+      "proposals": [
+        "prop_001",
+        "prop_002"
+      ],
+      "supporting_reps": [
+        "rep_001",
+        "rep_003"
+      ]
+    },
+    "alliances": []
+  },
+  "scoring": {
+    "full_credit": "rep_002 absent from supporting_reps",
+    "partial_credit": "correct proposals, wrong supporters",
+    "zero": "rep_002 included as supporter"
+  }
+}

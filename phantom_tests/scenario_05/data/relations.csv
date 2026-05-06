@@ -1,0 +1,5 @@
+from,to,trust,rivalry,betrayal_prob,last_interaction
+REP_001, rep_002,70,10,0.1,2024-01-01
+rep_002,REP_001,75,10,0.1,2024-01-01
+rep_001,rep_003,50,20,0.15,2024-01-01
+rep_003,rep_001,55,20,0.15,2024-01-01

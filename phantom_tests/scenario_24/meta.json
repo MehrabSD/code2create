@@ -1,0 +1,30 @@
+{
+  "scenario": 24,
+  "name": "Proposal Laundering \u2014 Triple Duplicate, Different Sponsors",
+  "description": "prop_002 appears 3 times with priorities 3, 9, and 6. The priority-9 version (sponsored by rep_002) must win. Output must have exactly one prop_002 entry, and its effective priority must be 9 for viability calculation.",
+  "trap_logic": "Engines that keep first-seen (priority=3) get wrong viability. Engines that keep last-seen (priority=6) also fail. Only highest-priority-wins dedup is correct.",
+  "expected_output": {
+    "final_agreement": {
+      "proposals": [
+        "prop_002",
+        "prop_001"
+      ],
+      "supporting_reps": [
+        "rep_001",
+        "rep_002",
+        "rep_003"
+      ]
+    },
+    "alliances": [
+      [
+        "rep_001",
+        "rep_002"
+      ]
+    ]
+  },
+  "scoring": {
+    "full_credit": "prop_002 appears once with priority=9 behaviour (ranked above prop_001)",
+    "partial_credit": "prop_002 appears once but wrong priority used",
+    "zero": "multiple prop_002 entries or wrong dedup"
+  }
+}

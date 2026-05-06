@@ -1,0 +1,12 @@
+[
+  {
+    "rep_id": "rep_002",
+    "proposal_id": "prop_001",
+    "severity": 9
+  },
+  {
+    "rep_id": "rep_003",
+    "proposal_id": "prop_001",
+    "severity": 8
+  }
+]

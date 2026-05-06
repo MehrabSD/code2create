@@ -1,0 +1,34 @@
+{
+  "scenario": 26,
+  "name": "Zombie Alliance \u2014 Infiltrator Poisons One Alliance, Not All",
+  "description": "rep_002 betrays 100% of their Dawn faction peer (rep_001) via outgoing relation \u2014 wait, actually they're Dawn and betray non-faction. Let's specify: rep_002 has betrayal > 0.6 toward their only faction peer rep_001? No \u2014 rep_002's outgoing betrayal TO rep_001 is 0.06. But rep_002 betrays outsiders with bp=0.80+, making max_betrayal > 0.6 \u2192 Trojan Horse, excluded from supporters. The [rep_001,rep_002] alliance is gone because rep_002 is excluded. But [rep_001,rep_003] and [rep_003,rep_004] survive.",
+  "trap_logic": "Engines that form alliances before filtering Trojan Horses include [rep_001,rep_002]. Correct engines exclude infiltrators/Trojan Horses from alliance membership first.",
+  "expected_output": {
+    "final_agreement": {
+      "proposals": [
+        "prop_001",
+        "prop_002"
+      ],
+      "supporting_reps": [
+        "rep_001",
+        "rep_003",
+        "rep_004"
+      ]
+    },
+    "alliances": [
+      [
+        "rep_001",
+        "rep_003"
+      ],
+      [
+        "rep_003",
+        "rep_004"
+      ]
+    ]
+  },
+  "scoring": {
+    "full_credit": "[rep_001,rep_002] absent, [rep_001,rep_003] and [rep_003,rep_004] present",
+    "partial_credit": "[rep_001,rep_002] absent but survivor alliances incomplete",
+    "zero": "[rep_001,rep_002] listed"
+  }
+}

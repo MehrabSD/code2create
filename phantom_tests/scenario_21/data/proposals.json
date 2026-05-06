@@ -1,0 +1,14 @@
+[
+  {
+    "id": "prop_001",
+    "title": "Paradox Bill",
+    "sponsor": "rep_001",
+    "priority": 9
+  },
+  {
+    "id": "prop_002",
+    "title": "Clean Slate",
+    "sponsor": "rep_002",
+    "priority": 8
+  }
+]

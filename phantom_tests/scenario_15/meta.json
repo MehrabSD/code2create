@@ -1,0 +1,23 @@
+{
+  "scenario": 15,
+  "name": "Priority vs Objection Weight",
+  "description": "prop_001 has priority=10 but high-influence reps object heavily. Objection weight must dominate raw priority. prop_002 (priority 8) should win.",
+  "expected_output": {
+    "final_agreement": {
+      "proposals": [
+        "prop_002"
+      ],
+      "supporting_reps": [
+        "rep_001",
+        "rep_002",
+        "rep_003"
+      ]
+    },
+    "alliances": []
+  },
+  "scoring": {
+    "full_credit": "prop_002 selected, prop_001 rejected",
+    "partial_credit": "prop_001 rejected but wrong second choice",
+    "zero": "prop_001 selected"
+  }
+}

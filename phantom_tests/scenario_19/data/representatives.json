@@ -1,0 +1,26 @@
+[
+  {
+    "id": "rep_001",
+    "name": "Valentina Cruz",
+    "faction": "Blue",
+    "influence": 82
+  },
+  {
+    "id": "rep_002",
+    "name": "Marcus Webb",
+    "faction": "Blue",
+    "influence": 78
+  },
+  {
+    "id": "rep_003",
+    "name": "Priya Okafor",
+    "faction": "Red",
+    "influence": 74
+  },
+  {
+    "id": "rep_004",
+    "name": "Jin Nakamura",
+    "faction": "Red",
+    "influence": 70
+  }
+]

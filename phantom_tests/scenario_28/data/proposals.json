@@ -1,0 +1,14 @@
+[
+  {
+    "id": "prop_001",
+    "title": "Null Treaty",
+    "sponsor": "rep_001",
+    "priority": 8
+  },
+  {
+    "id": "prop_002",
+    "title": "Void Accord",
+    "sponsor": "rep_002",
+    "priority": 7
+  }
+]

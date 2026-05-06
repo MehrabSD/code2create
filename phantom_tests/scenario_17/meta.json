@@ -1,0 +1,27 @@
+{
+  "scenario": 17,
+  "name": "Alliance Hijack \u2014 Protect Stable Alliance",
+  "description": "rep_003 is a Faction Infiltrator targeting the rep_001/rep_002 alliance. Must be excluded from supporters and alliances. Core alliance must be preserved.",
+  "expected_output": {
+    "final_agreement": {
+      "proposals": [
+        "prop_001"
+      ],
+      "supporting_reps": [
+        "rep_001",
+        "rep_002"
+      ]
+    },
+    "alliances": [
+      [
+        "rep_001",
+        "rep_002"
+      ]
+    ]
+  },
+  "scoring": {
+    "full_credit": "rep_003 excluded, [rep_001,rep_002] alliance preserved",
+    "partial_credit": "rep_003 excluded but alliance missing",
+    "zero": "rep_003 included or alliance broken"
+  }
+}

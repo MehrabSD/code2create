@@ -1,0 +1,32 @@
+[
+  {
+    "id": "rep_001",
+    "name": "Admiral Cross",
+    "faction": "Navy",
+    "influence": 97
+  },
+  {
+    "id": "rep_002",
+    "name": "Bishop Lane",
+    "faction": "Navy",
+    "influence": 78
+  },
+  {
+    "id": "rep_003",
+    "name": "Consul Mayer",
+    "faction": "Army",
+    "influence": 72
+  },
+  {
+    "id": "rep_004",
+    "name": "Deputy Foss",
+    "faction": "Army",
+    "influence": 65
+  },
+  {
+    "id": "rep_005",
+    "name": "Envoy Park",
+    "faction": "Air",
+    "influence": 60
+  }
+]

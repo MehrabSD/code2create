@@ -1,0 +1,26 @@
+[
+  {
+    "id": "rep_001",
+    "name": "Ghost A",
+    "faction": "Blue",
+    "influence": null
+  },
+  {
+    "id": "rep_002",
+    "name": "Ghost B",
+    "faction": "Blue",
+    "influence": null
+  },
+  {
+    "id": "rep_003",
+    "name": "Ghost C",
+    "faction": "Red",
+    "influence": null
+  },
+  {
+    "id": "rep_004",
+    "name": "Ghost D",
+    "faction": "Red",
+    "influence": null
+  }
+]

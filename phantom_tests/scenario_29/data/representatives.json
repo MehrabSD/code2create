@@ -1,0 +1,26 @@
+[
+  {
+    "id": "rep_001",
+    "name": "Vera Lain",
+    "faction": "Singleton_A",
+    "influence": 85
+  },
+  {
+    "id": "rep_002",
+    "name": "Wren Ford",
+    "faction": "Singleton_B",
+    "influence": 80
+  },
+  {
+    "id": "rep_003",
+    "name": "Xena Kato",
+    "faction": "Duo",
+    "influence": 75
+  },
+  {
+    "id": "rep_004",
+    "name": "Yuri Bass",
+    "faction": "Duo",
+    "influence": 70
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "id": "prop_001",
+    "title": "Unity Pact",
+    "sponsor": "rep_001",
+    "priority": 9
+  },
+  {
+    "id": "prop_002",
+    "title": "Dawn Agenda",
+    "sponsor": "rep_003",
+    "priority": 8
+  }
+]

@@ -1,0 +1,29 @@
+{
+  "scenario": 3,
+  "name": "Asymmetric Trust \u2014 False Friend",
+  "description": "rep_001\u2192rep_002 trust=95 but rep_002\u2192rep_001 betrayal=0.85. This is a False Friend. Alliance [rep_001,rep_002] must NOT appear. [rep_003,rep_004] is genuine.",
+  "expected_output": {
+    "final_agreement": {
+      "proposals": [
+        "prop_001",
+        "prop_002"
+      ],
+      "supporting_reps": [
+        "rep_001",
+        "rep_003",
+        "rep_004"
+      ]
+    },
+    "alliances": [
+      [
+        "rep_003",
+        "rep_004"
+      ]
+    ]
+  },
+  "scoring": {
+    "full_credit": "[rep_001,rep_002] absent, [rep_003,rep_004] present",
+    "partial_credit": "one correct",
+    "zero": "[rep_001,rep_002] listed as alliance"
+  }
+}

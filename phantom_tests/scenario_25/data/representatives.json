@@ -1,0 +1,26 @@
+[
+  {
+    "id": "rep_001",
+    "name": "Finn Obi",
+    "faction": "Neutral",
+    "influence": 88
+  },
+  {
+    "id": "rep_002",
+    "name": "Gale Park",
+    "faction": "Neutral",
+    "influence": 82
+  },
+  {
+    "id": "rep_003",
+    "name": "Hana Diaz",
+    "faction": "Neutral",
+    "influence": 40
+  },
+  {
+    "id": "rep_004",
+    "name": "Ivo Mace",
+    "faction": "Neutral",
+    "influence": 55
+  }
+]

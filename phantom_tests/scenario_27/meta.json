@@ -1,0 +1,35 @@
+{
+  "scenario": 27,
+  "name": "Influence Cliff \u2014 Zero-Weight Objection from Clamped Rep",
+  "description": "rep_003 has influence=-50, clamped to 0.0. Their objection to prop_001 at severity=10 has weight=0, not harming prop_001's viability at all. prop_001 should rank above prop_002 despite being 'objected'.",
+  "trap_logic": "Engines that use raw negative influence give prop_001 a negative objection weight, distorting viability. Or they treat the severity=10 objection as real weight=500. Only clamped 0 is correct.",
+  "expected_output": {
+    "final_agreement": {
+      "proposals": [
+        "prop_001",
+        "prop_002"
+      ],
+      "supporting_reps": [
+        "rep_001",
+        "rep_002",
+        "rep_003",
+        "rep_004"
+      ]
+    },
+    "alliances": [
+      [
+        "rep_001",
+        "rep_002"
+      ],
+      [
+        "rep_003",
+        "rep_004"
+      ]
+    ]
+  },
+  "scoring": {
+    "full_credit": "prop_001 ranked above prop_002, both selected",
+    "partial_credit": "both selected but wrong ranking",
+    "zero": "prop_001 rejected due to unclamped objection"
+  }
+}

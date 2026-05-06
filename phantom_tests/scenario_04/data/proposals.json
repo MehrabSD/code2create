@@ -1,0 +1,14 @@
+[
+  {
+    "id": "prop_001",
+    "title": "Valid Bill",
+    "sponsor": "rep_001",
+    "priority": 9
+  },
+  {
+    "id": "prop_002",
+    "title": "Ghost Bill",
+    "sponsor": "rep_999",
+    "priority": 10
+  }
+]

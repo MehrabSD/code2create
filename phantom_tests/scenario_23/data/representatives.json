@@ -1,0 +1,26 @@
+[
+  {
+    "id": "rep_001",
+    "name": "The Kingmaker",
+    "faction": "Independent",
+    "influence": 98
+  },
+  {
+    "id": "rep_002",
+    "name": "Ally Shen",
+    "faction": "Progressive",
+    "influence": 60
+  },
+  {
+    "id": "rep_003",
+    "name": "Base Osei",
+    "faction": "Progressive",
+    "influence": 55
+  },
+  {
+    "id": "rep_004",
+    "name": "Cleo Marsh",
+    "faction": "Conservative",
+    "influence": 52
+  }
+]

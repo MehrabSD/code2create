@@ -1,0 +1,35 @@
+{
+  "scenario": 22,
+  "name": "All-Null Influence \u2014 Mass Default Handling",
+  "description": "Every rep has influence=null, defaulting to 50.0. With uniform influence, prop_003's viability=0 (everyone objects at severity=10 with equal weight 50.0). prop_001 and prop_002 should win.",
+  "trap_logic": "Engines that crash on null influence fail immediately. Engines that ignore influence in objection weight produce wrong viability. Default must be exactly 50.0 and applied uniformly.",
+  "expected_output": {
+    "final_agreement": {
+      "proposals": [
+        "prop_001",
+        "prop_002"
+      ],
+      "supporting_reps": [
+        "rep_001",
+        "rep_002",
+        "rep_003",
+        "rep_004"
+      ]
+    },
+    "alliances": [
+      [
+        "rep_001",
+        "rep_002"
+      ],
+      [
+        "rep_003",
+        "rep_004"
+      ]
+    ]
+  },
+  "scoring": {
+    "full_credit": "no crash, prop_003 rejected, correct alliances",
+    "partial_credit": "no crash, prop_003 rejected, wrong alliances",
+    "zero": "crash or prop_003 selected"
+  }
+}

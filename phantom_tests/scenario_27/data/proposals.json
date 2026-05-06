@@ -1,0 +1,14 @@
+[
+  {
+    "id": "prop_001",
+    "title": "Stellar Act",
+    "sponsor": "rep_001",
+    "priority": 9
+  },
+  {
+    "id": "prop_002",
+    "title": "Lunar Bill",
+    "sponsor": "rep_004",
+    "priority": 8
+  }
+]

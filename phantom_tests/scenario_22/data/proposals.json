@@ -1,0 +1,20 @@
+[
+  {
+    "id": "prop_001",
+    "title": "Dark Horse",
+    "sponsor": "rep_001",
+    "priority": 9
+  },
+  {
+    "id": "prop_002",
+    "title": "Quiet Bill",
+    "sponsor": "rep_003",
+    "priority": 8
+  },
+  {
+    "id": "prop_003",
+    "title": "Doomed",
+    "sponsor": "rep_002",
+    "priority": 10
+  }
+]

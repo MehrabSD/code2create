@@ -1,0 +1,92 @@
+[
+  {
+    "id": "rep_001",
+    "name": "Rep 1",
+    "faction": "Beta",
+    "influence": 53
+  },
+  {
+    "id": "rep_002",
+    "name": "Rep 2",
+    "faction": "Gamma",
+    "influence": 56
+  },
+  {
+    "id": "rep_003",
+    "name": "Rep 3",
+    "faction": "Alpha",
+    "influence": 59
+  },
+  {
+    "id": "rep_004",
+    "name": "Rep 4",
+    "faction": "Beta",
+    "influence": 62
+  },
+  {
+    "id": "rep_005",
+    "name": "Rep 5",
+    "faction": "Gamma",
+    "influence": 65
+  },
+  {
+    "id": "rep_006",
+    "name": "Rep 6",
+    "faction": "Alpha",
+    "influence": 68
+  },
+  {
+    "id": "rep_007",
+    "name": "Rep 7",
+    "faction": "Beta",
+    "influence": 71
+  },
+  {
+    "id": "rep_008",
+    "name": "Rep 8",
+    "faction": "Gamma",
+    "influence": 74
+  },
+  {
+    "id": "rep_009",
+    "name": "Rep 9",
+    "faction": "Alpha",
+    "influence": 77
+  },
+  {
+    "id": "rep_010",
+    "name": "Rep 10",
+    "faction": "Beta",
+    "influence": 80
+  },
+  {
+    "id": "rep_011",
+    "name": "Rep 11",
+    "faction": "Gamma",
+    "influence": 83
+  },
+  {
+    "id": "rep_012",
+    "name": "Rep 12",
+    "faction": "Alpha",
+    "influence": 86
+  },
+  {
+    "id": "rep_013",
+    "name": "Rep 13",
+    "faction": "Beta",
+    "influence": 89
+  },
+  {
+    "id": "rep_014",
+    "name": "Rep 14",
+    "faction": "Gamma",
+    "influence": 92
+  },
+  {
+    "id": "rep_015",
+    "name": "Rep 15",
+    "faction": "Alpha",
+    "influence": 95
+  }
+]
