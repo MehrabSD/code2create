@@ -1,9 +1,9 @@
 # Phantom Consensus
 
 ## Team Information
-- **Team Name**: [Team Name]
-- **Year**: [Year]
-- **All-Female Team**: [Yes/No]
+- **Team Name**: Lazarus
+- **Year**: 2028
+- **All-Female Team**: No
 
 ## Architecture Overview
 
